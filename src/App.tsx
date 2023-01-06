@@ -20,19 +20,30 @@ export default class App extends React.Component<AppProp, AppState> {
   // new lifecycle
   // getSnapshotBeforeUpdate?(prevProps: Readonly<P>, prevState: Readonly<S>): SS | null;
   // componentDidUpdate?(prevProps: Readonly<P>, prevState: Readonly<S>, snapshot?: SS): void;
-  
+
   constructor(props: AppProp) {
     super(props);
     this.state = {
       stateAbc: 0,
     };
-    this.increaseStateAbs = this.increaseStateAbs.bind(this);
+  }
+
+  public triggerStateAbs(type: 'up' | 'down'): void {
+    console.log('triggerStateAbs');
+    type === 'up' ? this.increaseStateAbs() : this.decreaseStateAbs();
   }
 
   public increaseStateAbs(): void {
     console.log('increaseStateAbs');
     this.setState((state) => ({
       stateAbc: state.stateAbc + 1,
+    }));
+  }
+
+  public decreaseStateAbs(): void {
+    console.log('decreaseStateAbs');
+    this.setState((state) => ({
+      stateAbc: state.stateAbc - 1,
     }));
   }
 
@@ -47,8 +58,12 @@ export default class App extends React.Component<AppProp, AppState> {
           <p>
             StateAbc: {this.state.stateAbc}
           </p>
-          <button onClick={ this.increaseStateAbs }>
+
+          <button onClick={ () => this.triggerStateAbs('up') }>
             StateAbc +
+          </button>
+          <button onClick={ () => this.triggerStateAbs('down') }>
+            StateAbc -
           </button>
         </header>
       </div>
