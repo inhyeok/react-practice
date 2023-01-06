@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import ChildProps from './components/child-props/child-props';
 import Form from './components/form/Form';
 
 type StateAbsAction = 'up' | 'down';
@@ -68,6 +69,14 @@ export default class App extends React.Component<AppProp, AppState> {
           </p>
           {actionButtonList}
           <Form />
+          <ChildProps
+            titleElement={<h2>제목도 넣고</h2>}
+            subTitleElement={<h4>부제목도 넣고</h4>}
+          >
+            <p>하위 엘리먼트를 넣어봅시다~</p>
+            <br></br>
+            <p>자유롭게 이용해봅시다!</p>
+          </ChildProps>
         </header>
       </div>
     );
