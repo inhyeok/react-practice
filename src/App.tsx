@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Form from './components/form/form';
+import Form from './components/form/Form';
 
 type StateAbsAction = 'up' | 'down';
 
