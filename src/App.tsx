@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Form from './components/form/form';
 
 type StateAbsAction = 'up' | 'down';
 
@@ -59,7 +60,7 @@ export default class App extends React.Component<AppProp, AppState> {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <p>
             PropAbc: {this.props.propAbc}
           </p>
@@ -67,6 +68,7 @@ export default class App extends React.Component<AppProp, AppState> {
             StateAbc: {this.state.stateAbc}
           </p>
           {actionButtonList}
+          <Form />
         </header>
       </div>
     );
