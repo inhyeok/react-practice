@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+type StateAbsAction = 'up' | 'down';
+
 interface AppProp {
   propAbc: string;
 }
@@ -28,7 +30,7 @@ export default class App extends React.Component<AppProp, AppState> {
     };
   }
 
-  public triggerStateAbs(type: 'up' | 'down'): void {
+  public triggerStateAbs(type: StateAbsAction): void {
     console.log('triggerStateAbs');
     type === 'up' ? this.increaseStateAbs() : this.decreaseStateAbs();
   }
@@ -48,6 +50,12 @@ export default class App extends React.Component<AppProp, AppState> {
   }
 
   render() {
+    const stateAbsActionList: StateAbsAction[] = ['up', 'down'];
+    const actionButtonList = stateAbsActionList.map((type) => (
+      <button key={type} onClick={ () => this.triggerStateAbs(type) }>
+        StateAbc {type}
+      </button>
+    ));
     return (
       <div className="App">
         <header className="App-header">
@@ -58,13 +66,7 @@ export default class App extends React.Component<AppProp, AppState> {
           <p>
             StateAbc: {this.state.stateAbc}
           </p>
-
-          <button onClick={ () => this.triggerStateAbs('up') }>
-            StateAbc +
-          </button>
-          <button onClick={ () => this.triggerStateAbs('down') }>
-            StateAbc -
-          </button>
+          {actionButtonList}
         </header>
       </div>
     );
