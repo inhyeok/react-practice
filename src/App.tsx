@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
 import ChildProps from './components/child-props/child-props';
-import Form from './components/form/Form';
+import Form from './components/form/form';
 
 type StateAbsAction = 'up' | 'down';
 
@@ -60,10 +61,10 @@ export default class App extends React.Component<AppProp, AppState> {
     return (
       <div className="App">
         <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <p>
             PropAbc: {this.props.propAbc}
           </p>
+          <Link to="/task">Task 페이지로 이동</Link>
           <p>
             StateAbc: {this.state.stateAbc}
           </p>
