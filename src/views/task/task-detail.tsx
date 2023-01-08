@@ -1,23 +1,17 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 interface TaskDetailProp{
 }
 
 interface TaskDetailState {
-  taskId?: number;
 }
 
-export default class TaskDetail extends React.Component<TaskDetailProp, TaskDetailState> {
-  constructor(props: TaskDetailProp) {
-    super(props);
-    this.state = {};
-  }
-
-  render(): React.ReactNode {
-    return (
-      <>
-        <h1>TASK Detail Page</h1>
-      </>
-    );
-  }
+export default function TaskDetail() {
+  const { taskId } = useParams();
+  return (
+    <>
+      <h1>TASK Detail {taskId}</h1>
+    </>
+  );
 }
