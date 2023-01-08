@@ -1,17 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-interface TaskDetailProp{
-}
+interface TaskDetailProp {}
 
-interface TaskDetailState {
-}
+// interface TaskDetailState {}
 
-export default function TaskDetail() {
+const TaskDetail = (props: TaskDetailProp): JSX.Element => {
   const { taskId } = useParams();
   return (
     <>
       <h1>TASK Detail {taskId}</h1>
     </>
   );
-}
+};
+
+export default TaskDetail;

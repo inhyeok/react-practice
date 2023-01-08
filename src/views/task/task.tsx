@@ -4,7 +4,7 @@ import { Link, Outlet } from 'react-router-dom';
 interface TaskProp {}
 interface TaskState {}
 
-export default function Task() {
+const Task = (props: TaskProp): JSX.Element => {
   return (
     <>
       <h1>TASK Page</h1>
@@ -17,3 +17,5 @@ export default function Task() {
     </>
   );
 };
+
+export default Task;

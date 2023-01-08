@@ -5,15 +5,15 @@ interface ChildPropsProp extends React.PropsWithChildren {
   subTitleElement?: React.ReactNode;
 }
 
-export default class ChildProps extends React.Component<ChildPropsProp> {
-  render() {
-    return (
-      <>
-        <h1>Child Props</h1>
-        {this.props.titleElement}
-        {this.props.subTitleElement}
-        {this.props.children}
-      </>
-    );
-  }
+const ChildProps = (props: ChildPropsProp): JSX.Element => {
+  return (
+    <>
+      <h1>Child Props</h1>
+      {props.titleElement}
+      {props.subTitleElement}
+      {props.children}
+    </>
+  );
 }
+
+export default ChildProps;
